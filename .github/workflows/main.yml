@@ -1,4 +1,4 @@
-name: Cypress API Tests CI
+name: Cypress API Tests CI on Windows
 
 on:
   push:
@@ -9,8 +9,8 @@ on:
       - main
 
 jobs:
-  cypress-tests:
-    runs-on: ubuntu-latest
+  cypress-tests-windows:
+    runs-on: windows-latest   # <-- Use Windows runner
 
     steps:
       - name: Checkout code
@@ -26,17 +26,3 @@ jobs:
 
       - name: Run Cypress tests
         run: npm run test
-
-      - name: Upload Cypress videos (optional)
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: cypress-videos
-          path: cypress/videos
-
-      - name: Upload Cypress screenshots (optional)
-        if: always()
-        uses: actions/upload-artifact@v3
-        with:
-          name: cypress-screenshots
-          path: cypress/screenshots
