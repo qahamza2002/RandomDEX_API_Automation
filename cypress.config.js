@@ -7,6 +7,7 @@ module.exports = defineConfig({
       // place to add plugins, webpack config, or tasks if needed
       return config;
     },
+    
     specPattern: "cypress/e2e/**/*.cy.{js,ts}"  // Recommended spec pattern
   },
 });
